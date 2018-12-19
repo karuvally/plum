@@ -10,6 +10,18 @@ essential_stuff() {
         echo "error: run plum as root!"
         exit 1
     fi
+
+    # check if package_list exists
+    if [ ! -e package_list ]; then
+        echo "error: package_list not found!"
+        exit 1
+    fi
+
+    # check if configuration file exists
+    if [ ! -e plumrc ]; then
+        echo "error: plumrc not found!"
+        exit 1
+    fi
 }
 
 
