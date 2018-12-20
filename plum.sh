@@ -3,6 +3,14 @@
 # Copyright 2018, Aswin Babu Karuvally
 
 
+# install packages from package_list
+install_packages() {
+    cat package_list | while read line; do
+        echo $line
+    done
+}
+
+
 # check essential stuff
 essential_stuff() {
     # check if root
@@ -27,7 +35,11 @@ essential_stuff() {
 
 # the main function
 main() {
+    # check if essential files exist
     essential_stuff
+
+    # install the packages
+    install_packages
 }
 
 
