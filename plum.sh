@@ -5,9 +5,9 @@
 
 # install packages from package_list
 install_packages() {
-    cat package_list | while read line; do
-        if [[ ! $line =~ \[[a-z]+\] ]] && [ ! -z $line ]; then
-            echo $line
+    cat package_list | while read package; do
+        if [[ ! $package =~ \[[a-z]+\] ]] && [ ! -z $package ]; then
+            apt-get install $package
         fi
     done
 }
