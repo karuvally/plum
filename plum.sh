@@ -6,7 +6,9 @@
 # install packages from package_list
 install_packages() {
     cat package_list | while read line; do
-        echo $line
+        if [[ ! $line =~ \[[a-z]+\] ]] && [ ! -z $line ]; then
+            echo $line
+        fi
     done
 }
 
