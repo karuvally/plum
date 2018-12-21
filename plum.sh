@@ -6,6 +6,7 @@
 # install packages from package_list
 install_packages() {
     # update the repos
+    $cmd_package_manager $cmd_update
 
     # do the actual installation
     cat package_list | while read package; do
