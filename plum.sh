@@ -8,12 +8,16 @@ install_packages() {
     # update the repos
     $cmd_package_manager $cmd_update
 
-    # do the actual installation
+    # generate package string
+    package_string=""
     cat package_list | while read package; do
         if [[ ! $package =~ \[[a-z]+\] ]] && [ ! -z $package ]; then
-            apt-get install $package
+            package_string="$package_string $package"
         fi
     done
+
+    # do the actual installation
+    $cmd_package_manager $cmd_install $unattended_switch $package_string
 }
 
 
