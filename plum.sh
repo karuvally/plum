@@ -5,6 +5,9 @@
 
 # install packages from package_list
 install_packages() {
+    # update the repos
+
+    # do the actual installation
     cat package_list | while read package; do
         if [[ ! $package =~ \[[a-z]+\] ]] && [ ! -z $package ]; then
             apt-get install $package
@@ -13,8 +16,8 @@ install_packages() {
 }
 
 
-# check essential stuff
-essential_stuff() {
+# do checks, load files
+initialize_plum() {
     # check if root
     if [ `id -u` -ne 0 ]; then
         echo "error: run plum as root!"
@@ -31,14 +34,16 @@ essential_stuff() {
     if [ ! -e plumrc ]; then
         echo "error: plumrc not found!"
         exit 1
+    else
+        source plumrc
     fi
 }
 
 
 # the main function
 main() {
-    # check if essential files exist
-    essential_stuff
+    # do essential checks and load stuff
+    initialize_plum 
 
     # install the packages
     install_packages
