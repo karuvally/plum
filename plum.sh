@@ -10,11 +10,11 @@ install_packages() {
 
     # generate package string
     package_string=""
-    cat package_list | while read package; do
+    while read package; do
         if [[ ! $package =~ \[[a-z]+\] ]] && [ ! -z $package ]; then
             package_string+=" $package"
         fi
-    done
+    done <<< `cat package_list`
 
     # do the actual installation
     $cmd_package_manager $cmd_install $unattended_switch $package_string
