@@ -1,4 +1,5 @@
 * install only from specified categories
 * avoid specified category
+* auto distro detection
 * pull dotfiles from git repo
 * copy dotfiles to destinations
