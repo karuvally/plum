@@ -12,7 +12,7 @@ install_packages() {
     package_string=""
     cat package_list | while read package; do
         if [[ ! $package =~ \[[a-z]+\] ]] && [ ! -z $package ]; then
-            package_string="$package_string $package"
+            package_string+=" $package"
         fi
     done
 
