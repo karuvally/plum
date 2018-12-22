@@ -10,6 +10,9 @@ process_args() {
             install)
                 install_packages
                 ;;
+            *)
+                echo "error: unknown command"
+                ;;
         esac
     done
 }
@@ -63,9 +66,9 @@ main() {
     initialize_plum 
 
     # process command line args
-    process_args
+    process_args "$@"
 }
 
 
-# call the main function
-main
+# call the main function with args
+main "$@"
