@@ -21,6 +21,10 @@ process_args() {
                 echo "installing packages..."
                 install_packages
                 ;;
+
+            -h)
+                print_help()
+
             *)
                 echo "error: unknown command"
                 ;;
