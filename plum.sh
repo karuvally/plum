@@ -3,6 +3,18 @@
 # Copyright 2018, Aswin Babu Karuvally
 
 
+# process command line arguments
+process_args() {
+    for argument in "$@"; do
+        case $argument in
+            install)
+                install_packages
+                ;;
+        esac
+    done
+}
+
+
 # install packages from package_list
 install_packages() {
     # update the repos
@@ -50,8 +62,8 @@ main() {
     # do essential checks and load stuff
     initialize_plum 
 
-    # install the packages
-    install_packages
+    # process command line args
+    process_args
 }
 
 

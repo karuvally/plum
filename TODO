@@ -1,3 +1,7 @@
+* custom package_list path
+* custom plumrc path
+* run install only if install command is issued
+* help screen
 * install only from specified categories
 * avoid specified category
 * auto distro detection
