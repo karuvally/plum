@@ -3,11 +3,18 @@
 # Copyright 2018, Aswin Babu Karuvally
 
 
+# display the help screen
+print_help() {
+    echo "Plum, alpha release"
+}
+
+
 # process command line arguments
 process_args() {
     for argument in "$@"; do
         case $argument in
             install)
+                echo "installing packages..."
                 install_packages
                 ;;
             *)
@@ -64,6 +71,11 @@ initialize_plum() {
 main() {
     # do essential checks and load stuff
     initialize_plum 
+
+    # show help if empty arguments
+    if [ -z "$@" ]; then
+        print_help
+    fi 
 
     # process command line args
     process_args "$@"
