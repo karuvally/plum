@@ -23,7 +23,8 @@ process_args() {
                 ;;
 
             -h)
-                print_help()
+                print_help
+                ;;
 
             *)
                 echo "error: unknown command"
