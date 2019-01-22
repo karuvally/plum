@@ -8,8 +8,6 @@ print_help() {
     printf "Usage: ./plum.sh [install] [-h] [+/- category]\n"
     printf "\tinstall\t start package installation\n"
     printf "\t-h\t\t show this help screen\n"
-    printf "\t+category\t install only packages under category\n"
-    printf "\t-category\t exclude packages in category\n"
 }
 
 
